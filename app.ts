@@ -8,9 +8,6 @@ import passport from "./controllers/passport"
 import { PrismaSessionStore } from '@quixo3/prisma-session-store'
 import { PrismaClient } from '@prisma/client'
 
-import indexRouter from './routes/index';
-import usersRouter from './routes/users';
-
 const app: Express = express();
 
 // app.use(express.static(path.join(__dirname, 'public')));
@@ -45,8 +42,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/auth', require('./routes/auth.route'))
+app.use('/user', require('./routes/user.route'))
 
 // catch 404 and forward to error handler
 app.use((req: Request, res: Response, next: NextFunction) => {
