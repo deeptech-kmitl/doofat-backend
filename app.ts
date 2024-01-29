@@ -7,11 +7,14 @@ import logger from 'morgan';
 import passport from "./controllers/passport"
 import { PrismaSessionStore } from '@quixo3/prisma-session-store'
 import { PrismaClient } from '@prisma/client'
+import cors from 'cors'
 
 const app: Express = express();
 
 // app.use(express.static(path.join(__dirname, 'public')));
 const prisma: any = new PrismaClient()
+
+app.use(cors())
 
 app.use(session({
   secret: process.env.SESSION_SECRET || 'secret',
