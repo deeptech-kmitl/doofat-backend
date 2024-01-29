@@ -1,0 +1,104 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Session {
+  id        String   @id
+  sid       String   @unique
+  data      String
+  expiresAt DateTime
+}
+
+model User {
+  id         String   @id @default(cuid())
+  avatar     String?  @default("https://storage.googleapis.com/doofat_bucket/default/defaultAvatar.jpg")
+  email      String   @unique
+  name       String?
+  password   String   @default("no password")
+  googleId   String?  @unique
+  facebookId String?  @unique
+  createdAt  DateTime @default(now())
+
+  stores Store[]
+  orders Order[]
+
+  @@index([googleId, facebookId, email])
+}
+
+model Store {
+  id          String   @id @default(cuid())
+  userId      String
+  name        String
+  description String
+  logoImg     String?  @default("https://storage.googleapis.com/doofat_bucket/default/defaultStore.jpg")
+  bgImg       String?  @default("https://storage.googleapis.com/doofat_bucket/default/defaultBg.jpg")
+  location    String?
+  range       Float?   @default(0)
+  createdAt   DateTime @default(now())
+
+  menus  Menu[]
+  foods  Food[]
+  orders Order[]
+  user   User    @relation(fields: [userId], references: [id])
+
+  @@unique(fields: [id, userId], name: "id_userId")
+}
+
+model Menu {
+  id          Int      @id @default(autoincrement())
+  storeId     String
+  name        String
+  description String?
+  createdAt   DateTime @default(now())
+
+  foods Food[]
+  store Store  @relation(fields: [storeId], references: [id], onDelete: Cascade)
+
+  @@unique(fields: [id, storeId], name: "id_storeId")
+}
+
+model Food {
+  id          Int      @id @default(autoincrement())
+  menuId      Int
+  storeId     String
+  name        String
+  description String?
+  price       Int
+  img         String?  @default("https://storage.googleapis.com/doofat_bucket/default/defaultFood.jpg")
+  createdAt   DateTime @default(now())
+  menu        Menu     @relation(fields: [menuId], references: [id], onDelete: Cascade)
+  store       Store    @relation(fields: [storeId], references: [id], onDelete: Cascade)
+
+  @@unique(fields: [id, storeId], name: "id_storeId")
+  @@unique(fields: [id, menuId], name: "id_menuId")
+  @@unique(fields: [id, menuId, storeId], name: "id_menuId_storeId")
+}
+
+model Order {
+  id          Int         @id @default(autoincrement())
+  userId      String
+  storeId     String
+  foods       Json
+  total       Float
+  createdAt   DateTime    @default(now())
+  completedAt DateTime?
+  status      OrderStatus @default(NEW)
+
+  user  User  @relation(fields: [userId], references: [id])
+  store Store @relation(fields: [storeId], references: [id], onDelete: NoAction)
+}
+
+enum OrderStatus {
+  NEW
+  PENDING
+  COMPLETED
+  CANCLED
+}
