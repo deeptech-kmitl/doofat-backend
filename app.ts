@@ -1,5 +1,6 @@
 import createError from 'http-errors';
 import express, { Express, Request, Response, NextFunction } from 'express';
+import session from 'express-session';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';

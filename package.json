@@ -12,6 +12,7 @@
     "@google-cloud/storage": "^7.7.0",
     "@prisma/client": "^5.8.1",
     "@quixo3/prisma-session-store": "^3.1.13",
+    "@types/express-session": "^1.17.10",
     "bcrypt": "^5.1.1",
     "cookie-parser": "~1.4.4",
     "core-js": "^3.35.1",
