@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@google-cloud/storage": "^7.7.0",
-    "@prisma/client": "^5.8.1",
+    "@prisma/client": "^4.11.0",
     "@quixo3/prisma-session-store": "^3.1.13",
     "@types/express-session": "^1.17.10",
     "bcrypt": "^5.1.1",
