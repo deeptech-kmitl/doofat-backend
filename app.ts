@@ -3,11 +3,35 @@ import express, { Express, Request, Response, NextFunction } from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
+import passport from "./controllers/passport"
 
 import indexRouter from './routes/index';
 import usersRouter from './routes/users';
 
 const app: Express = express();
+
+// import path from 'path'
+const app: Application = express()
+
+// app.use(express.static(path.join(__dirname, 'public')));
+const prisma: any = new PrismaClient()
+
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'secret',
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 86400000 // set session expiration time to 24 hour
+  },
+  store: new PrismaSessionStore(
+    prisma,
+    {
+      checkPeriod: 2 * 60 * 1000,  //ms
+      dbRecordIdIsSessionId: true,
+      dbRecordIdFunction: undefined,
+    }
+  )
+}))
 
 // view engine setup
 app.set('views', path.join(__dirname, './views'));
