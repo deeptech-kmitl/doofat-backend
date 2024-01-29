@@ -4,14 +4,13 @@ import path from 'path';
 import cookieParser from 'cookie-parser';
 import logger from 'morgan';
 import passport from "./controllers/passport"
+import { PrismaSessionStore } from '@quixo3/prisma-session-store'
+import { PrismaClient } from '@prisma/client'
 
 import indexRouter from './routes/index';
 import usersRouter from './routes/users';
 
 const app: Express = express();
-
-// import path from 'path'
-const app: Application = express()
 
 // app.use(express.static(path.join(__dirname, 'public')));
 const prisma: any = new PrismaClient()
@@ -32,6 +31,8 @@ app.use(session({
     }
   )
 }))
+
+app.use(passport.authenticate('session'));
 
 // view engine setup
 app.set('views', path.join(__dirname, './views'));
