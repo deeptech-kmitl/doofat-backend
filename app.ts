@@ -14,9 +14,16 @@ const app: Express = express();
 // app.use(express.static(path.join(__dirname, 'public')));
 const prisma: any = new PrismaClient()
 
+const whitelist = ['http://localhost:3000', /** other domains if any */]
 app.use(cors({
-  origin: '*',
-  credentials: true
+  credentials: true,
+  origin: (origin, callback) => {
+    if (origin && whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
 }))
 
 app.use(session({
