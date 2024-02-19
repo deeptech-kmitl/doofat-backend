@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "doofat-382610",
+  "private_key_id": "a00b69da1e2e541424e23aa7412e0f38257b7d7e",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCdnIY8gYdROAIe\nW6jcXrOfttjfQZNC5piaiJmB3uD38vC0FzDpveE8YHoqdSn6H6qhyjVCUZV/KFSD\nhZGbI83ArTMhsKDdrsNAa9kkopy6cs2r+K3+t7xiqyHh7OIn0sGYLyWJa9ymaicq\ng7D2Xh+3NWZpnLPHsmxuDZ95hRLOSQVc4EJ+5LwsmeDBFZehfGlecPVTKbvzYZZo\nIi+ZeOjw+sDiHjFmQJuuPLleTA/7YA65rjCVOdzd8/3n2E7DfHDBBxjcLsOwEC9T\nY+tX72CFAeDCxcy39Yi/m6LPJmp6yiXXP8eu0OsOLojdsDCd91BjhbtCi36pKGYW\nN9AHRLx1AgMBAAECggEAA76lAKM4aO+ybf04hfZCdBayKjYsWDt5WbnJuxuyb0Gy\nG8OtsYgFsqg9W5/jN1WkRlBmTPHHFWykYWf9g/JpIF0dHDC01oxUVRLOGtnTbNyi\nBVl7Uzqs7hBp1cY881XfEqbgHSOkBb77Uj4rW+P0AsE9vyzUp3ev4Tq11Mg0IHsm\nUWniP46xAp4grQ/1ckzKt2yBJ9zfYAuNk5lFLS4jq1WrD8ESnpmor6OiJk6vGdOL\nz9R207WKTyDQ0q7nIVxDUMPlYph5U7z9eewaY668e3MXs+frcuTrLHFg3FMVJ5mm\nJiZc6yhvt8XSMPINrzb08oqdFvDVOQHWi8VQ+EqYiwKBgQDJdLFHTt/mNbINZyV9\nSg/UwUVPzZt2/WoFT79s+yBMh3DgD063ajp18mVAX+8eaih4zEETnkocPwm+7Gwo\nGZy0qgmypBly3chGLC6BQs9+/w2hSEHt0GUsnpFGfKKhvB+vNnFLFX2qtzOT9I8/\n917gb1fawcK2NjXXNnQAgmm+cwKBgQDISONcFT8oHiTBnQK+zkjzV+bgw2r7K+ed\nmSSAv5IH10Ip+z/N88IAoIv2N3TdGMOSrRSvX94CgRqOo1hBYs0pGq/nymFiNrtB\n1Ti//PgAVe9B/of9BZcW5zFwnBz7rmfBQNK3mgG1dnEOmMIz/2Ky0aS4+GuipR1p\nG6o9C+O3dwKBgQCnxltt+65UVxu2NdTvByMwGNXUpHN5IYuOaOAPrwUzNwk2UQlJ\nj1qop/rTJhJKzjZuhA0efZFS/Nzs+JEKxGnRvFrfP/NByprkdh8036NXLKr5Sug9\nWnUoN9bdUSdQcxAgJ8MquPczmeeGrQIwT5/gYlpUgVHb1kH4vgzV78aJKQKBgES5\nfgqi38EMVuB41/BRKIcXqomFhLgbIKbbXcMv+RPnsTRmmkY5VmCQtnYOIXOcg79Y\n1Lg41R1W354CPs5w8KUiGyoWL8Rbs3WrjIWUcCTtV+P1SwRvXqDlQ/m4F9nkxoVx\nkNyfY+a4daLkl/7vqxZhCXzPAWAV+DmQ3KGF6uWRAoGAFgCuEXfWiqIcim/2Og11\nhOFVtIe8Ko+f1hcqoG/47skZ7QIrw/WE3rd4tL0/L/AxbWMVeEi6C2oSN1fhbXNm\nz9TRlwfqHyecvXZZ3+ZGrW0au6iktBTPeVlT7e2jAWQ36xjpORolXAsDICufC18l\n40MJaLpn6lGc6JWRmB9gA1w=\n-----END PRIVATE KEY-----\n",
+  "client_email": "doofat-bucket@doofat-382610.iam.gserviceaccount.com",
+  "client_id": "115075497994380823212",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/doofat-bucket%40doofat-382610.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

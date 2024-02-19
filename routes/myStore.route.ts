@@ -1,8 +1,8 @@
 import { Router, Request, Response } from 'express'
 import { validate, body } from '../controllers/validators/bodyValidate'
-import { create, edit, getStores, getStore, deleteStore, menu, food } from '../controllers/myStore/'
+import { create, edit, getStores, getStore, deleteStore } from '../controllers/myStore/'
 import requireSession from '../controllers/validators/session'
-import { ownerStore, storeMenu, storeMenuFood } from '../controllers/validators/myStore'
+import { ownerStore } from '../controllers/validators/myStore'
 import multer from '../controllers/storage/multer'
 
 const router = Router()
@@ -25,27 +25,27 @@ router.delete('/:id', requireSession, ownerStore, deleteStore) // Delete a store
 // Sub routes
 
 // Menu
-router.get('/:id/menu', requireSession, ownerStore, menu.getMenus) // Get all menus
+// router.get('/:id/menu', requireSession, ownerStore, menu.getMenus) // Get all menus
 
-router.get('/:id/menu/:menuId', requireSession, ownerStore, menu.getMenu) // Get a menu
+// router.get('/:id/menu/:menuId', requireSession, ownerStore, menu.getMenu) // Get a menu
 
-router.post('/:id/menu', requireSession, body('name').notEmpty(), body('description'), validate, ownerStore, menu.create) // Create a menu
+// router.post('/:id/menu', requireSession, body('name').notEmpty(), body('description'), validate, ownerStore, menu.create) // Create a menu
 
-router.patch('/:id/menu/:menuId', requireSession, body('name').notEmpty(), body('description'), validate, storeMenu, menu.edit)  // Edit a menu
+// router.patch('/:id/menu/:menuId', requireSession, body('name').notEmpty(), body('description'), validate, storeMenu, menu.edit)  // Edit a menu
 
-router.delete('/:id/menu/:menuId', requireSession, ownerStore, menu.delete) // Delete a menu
+// router.delete('/:id/menu/:menuId', requireSession, ownerStore, menu.delete) // Delete a menu
 
-// Food
-router.get('/:id/food', requireSession, ownerStore, food.getStoreFoods) // Get all store food
+// // Food
+// router.get('/:id/food', requireSession, ownerStore, food.getStoreFoods) // Get all store food
 
-router.get('/:id/menu/:menuId/food', requireSession, ownerStore, food.getFoods) // Get all foods in a menu
+// router.get('/:id/menu/:menuId/food', requireSession, ownerStore, food.getFoods) // Get all foods in a menu
 
-router.get('/:id/food/:foodId', requireSession, ownerStore, food.getFood) // Get a food
+// router.get('/:id/food/:foodId', requireSession, ownerStore, food.getFood) // Get a food
 
-router.post('/:id/menu/:menuId/food', requireSession, foodFileMiddleware, body('name').notEmpty(), body('description'), body('price').notEmpty().isNumeric(), body('img'), validate, storeMenu, food.createFood) // Create a food in a menu
+// router.post('/:id/menu/:menuId/food', requireSession, foodFileMiddleware, body('name').notEmpty(), body('description'), body('price').notEmpty().isNumeric(), body('img'), validate, storeMenu, food.createFood) // Create a food in a menu
 
-router.patch('/:id/menu/:menuId/food/:foodId', requireSession, foodFileMiddleware, body('name').notEmpty(), body('description'), body('price').notEmpty().isNumeric(), body('img'), validate, storeMenuFood, food.editFood) // Edit a food in a menu
+// router.patch('/:id/menu/:menuId/food/:foodId', requireSession, foodFileMiddleware, body('name').notEmpty(), body('description'), body('price').notEmpty().isNumeric(), body('img'), validate, storeMenuFood, food.editFood) // Edit a food in a menu
 
-router.delete('/:id/food/:foodId', requireSession, ownerStore, food.deleteFood) // Delete a food in a menu
+// router.delete('/:id/food/:foodId', requireSession, ownerStore, food.deleteFood) // Delete a food in a menu
 
 module.exports = router
