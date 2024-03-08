@@ -24,6 +24,7 @@ const getStore = async (req: Request, res: Response) => {
             }
         }
 
+
         if (stores) {
             return res.status(200).json(stores)
         } else {
@@ -62,5 +63,6 @@ function isPositionInRange(lat1: number, lon1: number, lat2: number, lon2: numbe
     const distance: number = calculateDistance(lat1, lon1, lat2, lon2)
     return distance <= rangeInMeters
 }
+
 
 export default getStore
