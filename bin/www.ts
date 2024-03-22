@@ -6,6 +6,7 @@
 import app from '../app';
 import dbug from 'debug';
 import http, { Server } from 'http';
+import Socket from '../controllers/socket/socket'
 
 const debug = dbug('doofat-backend:server');
 
@@ -21,6 +22,21 @@ app.set('port', port);
  */
 
 const server: Server = http.createServer(app);
+const io = Socket.createInstance(server)
+
+app.use('/socket', () => {
+  io.on('connection', (socket) => {
+    console.log('a user connected');
+    socket.on('getMessage', (data) => {
+      console.log(data);
+      socket.emit('sendMessage', 'Hello from server');
+    })
+
+    socket.on('disconnect', () => {
+      console.log('user disconnected');
+    });
+  });
+});
 
 /**
  * Listen on provided port, on all network interfaces.
