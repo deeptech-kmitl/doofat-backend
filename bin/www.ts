@@ -24,7 +24,7 @@ app.set('port', port);
 const server: Server = http.createServer(app);
 const io = Socket.createInstance(server)
 
-app.use('/socket', () => {
+app.use('/', () => {
   io.on('connection', (socket) => {
     console.log('a user connected');
     socket.on('getMessage', (data) => {
